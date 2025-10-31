@@ -1,0 +1,150 @@
+/* About Page Styles */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 48px;
+  align-items: start;
+}
+
+.about-content h3 {
+  font-size: 32px;
+  margin: 0 0 24px;
+  background: linear-gradient(135deg, #fff, #efeef6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-content p {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0 0 32px;
+}
+
+.experience, .interests {
+  background: var(--card);
+  padding: 24px;
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.experience h4, .interests h4 {
+  color: var(--accent);
+  margin: 0 0 16px;
+  font-size: 20px;
+}
+
+.experience ul, .interests ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.experience li {
+  margin-bottom: 24px;
+}
+
+.experience li:last-child {
+  margin-bottom: 0;
+}
+
+.experience strong {
+  color: #fff;
+  display: block;
+  font-size: 18px;
+}
+
+.experience span {
+  color: var(--accent);
+  font-size: 14px;
+  display: block;
+  margin: 4px 0;
+}
+
+.experience p {
+  font-size: 15px;
+  margin: 8px 0 0;
+}
+
+.interests li {
+  color: var(--muted);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.interests li:before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.about-image {
+  position: sticky;
+  top: 100px;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+}
+
+.connect-links {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--card);
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.social-link:hover {
+  background: var(--accent);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(124,58,237,0.3);
+}
+
+.social-link i {
+  font-size: 20px;
+}
+
+@media (max-width: 980px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .about-image {
+    max-width: 320px;
+    margin: 0 auto;
+    position: static;
+  }
+}
+
+@media (max-width: 560px) {
+  .about-content h3 {
+    font-size: 28px;
+  }
+  
+  .experience, .interests {
+    padding: 20px;
+  }
+}

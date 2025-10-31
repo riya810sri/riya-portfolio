@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>My Work — Riya Srivastava</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/work.css" rel="stylesheet">
+</head>
+<body>
+  <div id="particles-js"></div>
+  
+  <header class="header">
+    <div class="navwrap container">
+      <a href="index.html" class="logo">Riya Srivastava</a>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="services.html">Services</a>
+        <a href="work.html" class="active">Work</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section" id="work">
+      <h2 class="sub-title">Sample <span class="accent">Works</span></h2>
+      
+      <!-- Portfolio Filters -->
+      <div class="work-filters">
+        <button class="filter-btn active" data-filter="all">All Work</button>
+        <button class="filter-btn" data-filter="web">Websites</button>
+        <button class="filter-btn" data-filter="resume">Resumes</button>
+        <button class="filter-btn" data-filter="poster">Posters</button>
+      </div>
+
+      <div class="work-grid">
+        <!-- Website Projects -->
+        <div class="work-card" data-category="web">
+          <div class="work-image">
+            <img src="tech.png" alt="Techonquer - Tech Blog Website">
+            <div class="work-overlay">
+              <div class="work-links">
+                <a href="https://techonquer.in/" class="work-link" target="_blank"><i class='bx bx-link-external'></i> View Live</a>
+              </div>
+            </div>
+          </div>
+          <div class="work-info">
+            <h3>Techonquer</h3>
+            <p>A dynamic tech blog website featuring the latest technology news, tutorials, and insights.</p>
+            <div class="work-tags">
+              <span>React</span>
+              <span>tailwind css</span>
+              <span>Tech News</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="work-card" data-category="web">
+          <div class="work-image">
+            <img src="strike.png" alt="Strike - Website by Riya">
+            <div class="work-overlay">
+              <div class="work-links">
+                <a href="https://strike-website-by-riya.vercel.app/" class="work-link" target="_blank" rel="noopener"><i class='bx bx-link-external'></i> View Live</a>
+              </div>
+            </div>
+          </div>
+          <div class="work-info">
+            <h3>Strike — Website</h3>
+            <p>A modern, responsive site deployed on Vercel showcasing a clean UI and project features.</p>
+            <div class="work-tags">
+              <span>Vercel</span>
+              <span>Responsive</span>
+              <span>HTML/CSS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="work-card" data-category="web">
+          <div class="work-image">
+            <img src="eco.png" alt="Orebish Shopping - E‑commerce Demo">
+            <div class="work-overlay">
+              <div class="work-links">
+                <a href="https://orebishopping-clean-fmnv289aj.vercel.app/" class="work-link" target="_blank" rel="noopener"><i class='bx bx-link-external'></i> View Live</a>
+              </div>
+            </div>
+          </div>
+          <div class="work-info">
+            <h3>Orebish Shopping</h3>
+            <p>A clean e-commerce demo site deployed on Vercel showcasing product listing and cart UI.</p>
+            <div class="work-tags">
+              <span>Vercel</span>
+              <span>E‑commerce</span>
+              <span>Responsive</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resume Projects -->
+        <div class="work-card" data-category="resume">
+          <div class="work-image">
+            <img src="riya.png" alt="Professional Resume Design">
+            <div class="work-overlay">
+              <div class="work-links">
+                <a href="#contact" class="work-link"><i class='bx bx-lock-alt'></i> Book Demo</a>
+              </div>
+            </div>
+          </div>
+          <div class="work-info">
+            <h3>Modern Resume Template <i class='bx bx-lock text-sm' style="color:var(--accent)"></i></h3>
+            <p>ATS-friendly resume design with clean layout and professional formatting. Book a demo to view more templates.</p>
+            <div class="work-tags">
+              <span>Canva</span>
+              <span>Resume</span>
+              <span>Professional</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Poster Projects -->
+        <div class="work-card" data-category="poster">
+          <div class="work-image">
+            <img src="event.png" alt="Event Poster Design">
+            <div class="work-overlay">
+              <div class="work-links">
+                <a href="https://www.figma.com/design/IWWiF38kHBKUtlzTrWW6we/Untitled?node-id=0-1&t=X3xn7fED6i6Ntxfa-1" class="work-link"><i class='bx bx-zoom-in'></i> View Details</a>
+              </div>
+            </div>
+          </div>
+          <div class="work-info">
+            <h3>Event Promotion Poster</h3>
+            <p>Eye-catching poster design for social media promotion with vibrant colors.</p>
+            <div class="work-tags">
+              <span>Poster</span>
+              <span>Social Media</span>
+              <span>Marketing</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add more project cards as needed -->
+      </div>
+
+      <!-- Testimonials Section -->
+      <div class="testimonials">
+        <h3>What My Clients Say</h3>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <p>"Riya created a beautiful resume that helped me land my first internship. Her attention to detail and professional design made my application stand out."</p>
+            </div>
+            <div class="testimonial-author">
+              <img src="images/testimonial-1.jpg" alt="Client">
+              <div>
+                <strong>Priya Sharma</strong>
+                <span>Engineering Student</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <p>"My son's computer skills have improved significantly since starting lessons with Riya. Her patient teaching style and practical approach make learning enjoyable."</p>
+            </div>
+            <div class="testimonial-author">
+              <img src="images/testimonial-2.jpg" alt="Client">
+              <div>
+                <strong>Anita Patel</strong>
+                <span>Parent</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <strong>Riya Srivastava</strong> · <span id="current-year">2025</span></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/work.js"></script>
+</body>
+</html>

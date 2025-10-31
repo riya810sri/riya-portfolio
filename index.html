@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Riya Srivastava — Web Designer · Resume Designer · Tutor</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0710;
+      --card:#110a17;
+      --accent:#7c3aed;
+      --muted:#bdb8c8;
+      --glass: rgba(255,255,255,0.04);
+      --radius:16px;
+      --maxw:1100px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow: 0 10px 30px rgba(124,58,237,0.3);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      font-size: medium
+    }
+
+    /* Animation keyframes */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Enhanced button styles */
+    .btn {
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+      font-size:medium; 
+    }
+
+    .btn:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: 0.5s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn:hover:before {
+      left: 100%;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--bg),#0f0920);color:#efeef6;line-height:1.5}
+    .container{max-width:var(--maxw);margin:0 auto;padding:24px}
+
+    /* Header and Navigation */
+    header.header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      font-size: larger;
+      background: linear-gradient(180deg, rgba(11,7,16,0.95), rgba(11,7,16,0.85));
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(124,58,237,0.1);
+      z-index: 40;
+      transition: all 0.3s ease;
+    }
+
+    header.header.scrolled {
+      background: rgba(11,7,16,0.98);
+      border-bottom: 1px solid rgba(124,58,237,0.2);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    .header .navwrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 24px;
+      max-width: var(--maxw);
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 22px;
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--accent), #9d5cff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .logo:hover {
+      text-shadow: 0 0 20px rgba(124,58,237,0.5);
+      transform: translateY(-1px);
+    }
+
+    nav.navbar {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    nav.navbar a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 500;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    nav.navbar a:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), #9d5cff);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    nav.navbar a:hover:before,
+    nav.navbar a.active:before {
+      width: calc(100% - 32px);
+    }
+
+    nav.navbar a:hover,
+    nav.navbar a.active {
+      color: #fff;
+      background: linear-gradient(180deg, rgba(124,58,237,0.1), rgba(124,58,237,0.05));
+    }
+
+    /* Hamburger Menu */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 50;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--accent);
+      margin: 5px 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+
+      nav.navbar {
+        position: fixed;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        background: rgba(11,7,16,0.98);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 20px;
+        flex-direction: column;
+        gap: 16px;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border-bottom: 1px solid rgba(124,58,237,0.1);
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      }
+
+      nav.navbar.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      nav.navbar a {
+        width: 100%;
+        text-align: center;
+        padding: 12px 20px;
+        font-size: 18px;
+      }
+
+      nav.navbar a:before {
+        bottom: 8px;
+      }
+
+      .header .navwrap {
+        padding: 12px 20px;
+      }
+    }
+
+    /* Hero */
+    .home{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:48px 0}
+    .home-content h3{margin:0;font-weight:500;color:var(--muted)}
+    .home-content h1{margin:6px 0 8px;font-size:40px;color:#fff}
+    .home-content p{color:var(--muted);max-width:600px}
+    .home-cta{display:flex;gap:12px;margin-top:18px}
+    .btn{background:linear-gradient(90deg,var(--accent),#5b21b6);border:none;padding:10px 16px;border-radius:12px;color:white;text-decoration:none;display:inline-block}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .hero-image{display:flex;justify-content:center}
+    .hero-card{width:360px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:18px;padding:18px;border:1px solid rgba(255,255,255,0.03)}
+    .hero-card img{width:100%;border-radius:12px}
+
+    /* Services */
+    .section{padding:48px 0}
+    .sub-title{color:var(--muted);font-weight:600}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+    .service{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.03)}
+    .service h2{margin:8px 0;color:#fff}
+    .service p{color:var(--muted);font-size:14px}
+    .service{transition:transform 0.25s, box-shadow 0.25s}
+    .service:hover{transform:translateY(-6px);box-shadow:0 8px 26px rgba(124,58,237,0.25)}
+
+    /* Projects */
+    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+    .project{background:var(--card);padding:12px;border-radius:12px;transition:transform .2s, box-shadow .2s}
+    .project:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+    .project img{width:100%;height:150px;object-fit:cover;border-radius:10px}
+    .project h4{margin:8px 0 0}
+    .project p{color:var(--muted);font-size:13px}
+
+    /* Pricing */
+    .pricing{display:flex;gap:12px;margin-top:18px}
+    .price-card{flex:1;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:12px;text-align:center}
+    .price-card h3{margin:6px 0}
+    .price{font-size:22px;color:var(--accent);font-weight:700}
+
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .skill-card {
+      background: var(--card);
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.03);
+      transition: all 0.3s ease;
+    }
+    .skill-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 26px rgba(124,58,237,0.25);
+      border-color: rgba(124,58,237,0.2);
+    }
+    .skill-category {
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .skill-tag {
+      background: var(--glass);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      color: var(--muted);
+      transition: all 0.3s ease;
+    }
+    .skill-tag:hover {
+      background: rgba(124,58,237,0.1);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    @media (max-width: 980px) {
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 560px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 380px;gap:18px}
+    form input, form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#fff}
+    .contact-info{background:var(--card);padding:18px;border-radius:12px}
+    a.contact-link{color:var(--accent);text-decoration:none}
+    
+    /* WhatsApp Button */
+    .contact-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .whatsapp-button {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #25D366;
+      color: white;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+    .whatsapp-button:hover {
+      background: #128C7E;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    }
+    .whatsapp-button svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Status message styles */
+    .status-success{color:#b8ffda;background:rgba(40,62,45,0.15);padding:10px;border-radius:8px;border:1px solid rgba(60,200,140,0.08)}
+    .status-error{color:#ffd2d2;background:rgba(80,30,30,0.12);padding:10px;border-radius:8px;border:1px solid rgba(255,120,120,0.08)}
+
+      /* Spinner animation */
+      .spinner {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        border-top-color: transparent;
+        animation: spin 0.6s linear infinite;
+        margin-left: 8px;
+        vertical-align: middle;
+      }
+    
+      @keyframes spin {
+        to {transform: rotate(360deg);}
+      }
+
+      button:disabled {
+        opacity: 0.7;
+        cursor: wait;
+      }
+
+    /* Footer */
+    footer.footer{padding:18px 0;color:var(--muted);text-align:center}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .home{grid-template-columns:1fr;}
+      .services-grid, .projects-grid{grid-template-columns:1fr 1fr}
+      .contact-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:560px){
+      .services-grid,.projects-grid{grid-template-columns:1fr}
+      .hero-card{width:100%}
+      nav.navbar{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+  <style>
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+    
+    main, header {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS('particles-js',
+      {
+        "particles": {
+          "number": {
+            "value": 50,
+            "density": {
+              "enable": true,
+              "value_area": 800
+            }
+          },
+          "color": {
+            "value": "#7c3aed"
+          },
+          "shape": {
+            "type": "circle"
+          },
+          "opacity": {
+            "value": 0.3,
+            "random": true
+          },
+          "size": {
+            "value": 3,
+            "random": true
+          },
+          "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#7c3aed",
+            "opacity": 0.2,
+            "width": 1
+          },
+          "move": {
+            "enable": true,
+            "speed": 2,
+            "direction": "none",
+            "random": true,
+            "out_mode": "out"
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": {
+              "enable": true,
+              "mode": "grab"
+            },
+            "resize": true
+          }
+        },
+        "retina_detect": true
+      }
+    );
+  </script>
+
+  <header class="header">
+    <div class="navwrap container">
+      <a href="#home" class="logo" style="font-size: x-larger;">Riya Srivastava</a>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="services.html">Services</a>
+        <a href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <br><br>
+  <main class="container">
+    <!-- HERO -->
+    <section class="home reveal" id="home" data-animation="fadeIn">
+      <div>
+        <div class="home-content reveal" data-animation="fadeInUp">
+          <h3>Hello, I'm</h3>
+          <h1>Riya Srivastava</h1>
+          <h3>Aspiring <span style="color:var(--accent);">Web Designer</span> & <span style="color:var(--accent);">Tutor</span></h3>
+          <p style="font-size: larger;">I'm a Full-Stack Developer and digital specialist. I don't just design simple, responsive websites with HTML/CSS—I build complete, dynamic web applications, managing everything from the frontend user experience to the robust backend logic and databases. Beyond development, I leverage my design skills to create professional resumes and posters for small businesses and students, and I teach foundational maths and computer basics to classes 6–10.</p>
+          <div class="home-cta">
+            <a href="contact.html" class="btn">Book a Demo</a>
+            <a href="work.html" class="btn ghost">View Work</a>
+          </div>
+          <div style="margin-top:16px;color:var(--muted);font-size:14px">Contact: <a class="contact-link" href="mailto:launchlayer49@gmail.com">launchlayer49@gmail.com</a> · <a class="contact-link" href="tel:+917985042683">+91 7985042683</a></div>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <div class="hero-card">
+          <!-- Placeholder avatar — replace with your image file -->
+          <img src="Untitled_design_out0009-removebg-preview.png" alt="Riya">
+          <div style="margin-top:12px">
+            <strong style="color:#fff">Services</strong>
+            <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+              <span style="background:var(--glass);padding:6px 8px;border-radius:8px;color:var(--muted);font-size:13px">Websites</span>
+              <span style="background:var(--glass);padding:6px 8px;border-radius:8px;color:var(--muted);font-size:13px">Resumes</span>
+              <span style="background:var(--glass);padding:6px 8px;border-radius:8px;color:var(--muted);font-size:13px">Posters</span>
+              <span style="background:var(--glass);padding:6px 8px;border-radius:8px;color:var(--muted);font-size:13px">Tutoring</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <h2 class="sub-title">About <span style="color:var(--accent)">Me</span></h2>
+      <div style="display:flex;gap:18px;align-items:center;margin-top:12px;flex-wrap:wrap">
+        <div style="flex:1;min-width:280px">
+          <h3 style="margin-top:0">Full Stack Web Developer & Tutor</h3>
+          <p style="color:var(--muted);font-size: larger;">I'm a passionate full-stack developer who crafts modern web applications using React.js and Tailwind CSS. With a strong foundation in both front-end and back-end technologies, I create intuitive, responsive, and performant web solutions. I also mentor students in web development, sharing my expertise in modern web technologies.</p>
+          <ul style="color:var(--muted);margin-top:12px">
+            <li>Modern web apps with React.js and Next.js</li>
+            <li>Responsive UI/UX with Tailwind CSS</li>
+            <li>Full-stack development with Node.js/Express</li>
+            <li>Web development tutoring and mentorship</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <h2 class="sub-title">My <span style="color:var(--accent)">Skills</span></h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-category">
+            <i class='bx bxl-react' style="font-size:24px"></i>
+            Frontend Development
+          </div>
+          <div class="skill-list">
+            <span class="skill-tag">React.js</span>
+            <span class="skill-tag">Next.js</span>
+            
+            <span class="skill-tag">Tailwind CSS</span>
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-category">
+            <i class='bx bxl-nodejs' style="font-size:24px"></i>
+            Backend Development
+          </div>
+          <div class="skill-list">
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">RESTful APIs</span>
+           
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-category">
+            <i class='bx bx-palette' style="font-size:24px"></i>
+            UI/UX & Tools
+          </div>
+          <div class="skill-list">
+            <span class="skill-tag">Figma</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">VS Code</span>
+            <span class="skill-tag">Responsive Design</span>
+            <span class="skill-tag">UI Animation</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-category">
+            <i class='bx bx-code-block' style="font-size:24px"></i>
+            Other Skills
+          </div>
+          <div class="skill-list">
+            <span class="skill-tag">Web Performance</span>
+            <span class="skill-tag">SEO</span>
+            <span class="skill-tag">Testing</span>
+            <span class="skill-tag">CI/CD</span>
+            <span class="skill-tag">Agile/Scrum</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section reveal" id="services" data-animation="fadeInUp">
+      <h2 class="sub-title reveal" data-animation="fadeInUp">My <span style="color:var(--accent)">Services</span></h2>
+      <div class="services-grid reveal" data-animation="scaleIn" style="margin-top:16px">
+        <div class="service">
+          <i class='bx bx-code-alt' style="font-size:22px;color:var(--accent)"></i>
+          <h2>Website Design</h2>
+          <p>Small portfolio and business websites (1–5 pages). I build responsive designs with HTML/CSS and publish them on GitHub Pages or Wix.</p>
+          <div style="margin-top:12px"><a class="btn" href="contact.html">Request Website</a></div>
+        </div>
+        <div class="service">
+          <i class='bx bxs-file' style="font-size:22px;color:var(--accent)"></i>
+          <h2>Resume & Poster Design</h2>
+          <p>Modern, ATS-friendly resumes and eye-catching posters for events or social media. Editable Canva source is provided.</p>
+          <div style="margin-top:12px"><a class="btn" href="contact.html">Order Design</a></div>
+        </div>
+        <div class="service">
+          <i class='bx bx-book' style="font-size:22px;color:var(--accent)"></i>
+          <h2>Online Tutoring</h2>
+          <p>Maths and Computer basics for classes 6–10. Friendly lessons, practical tasks and progress reports.</p>
+          <div style="margin-top:12px"><a class="btn" href="contact.html">Book Demo Class</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <h2 class="sub-title">Recent <span style="color:var(--accent)">Work</span></h2>
+      <div class="projects-grid">
+        <div class="project">
+          <a href="https://techonquer.in/" style="text-decoration:none;color:inherit">
+            <img src="tech.png" alt="website sample">
+            <h4>Techonquer - Tech Blog</h4>
+            <p style="color:var(--muted)">A dynamic tech cybersecurity website featuring the latest technology news and insights.</p>
+          </a>
+        </div>
+        
+        <div class="project">
+          <a href="contact.html" style="text-decoration:none;color:inherit">
+            <img src="riya.png" alt="Resume sample">
+            <h4>Resume Templates <i class='bx bx-lock text-sm' style="color:var(--accent)"></i></h4>
+            <p style="color:var(--muted)">Professional ATS-friendly resume templates. Book a demo to view and customize.</p>
+          </a>
+        </div>
+        <div class="project">
+          <a href="https://www.figma.com/design/IWWiF38kHBKUtlzTrWW6we/Untitled?node-id=0-1&t=X3xn7fED6i6Ntxfa-1" style="text-decoration:none;color:inherit">
+            <img src="event.png" alt="Poster sample">
+            <h4>Event Poster</h4>
+            <p style="color:var(--muted)">Vibrant social media poster designed for event promotion and high engagement.</p>
+          </a>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:32px">
+        <a href="work.html" class="btn">View All Projects <i class='bx bx-right-arrow-alt' style="vertical-align:middle;margin-left:4px"></i></a>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section" id="pricing">
+      <h2 class="sub-title">Pricing</h2>
+      <div class="pricing">
+        <div class="price-card">
+          <h3>Resume Design</h3>
+          <div class="price">₹199</div>
+          <p style="color:var(--muted)">Includes 1 revision and Canva source file.</p>
+        </div>
+        <div class="price-card">
+          <h3>Poster Design</h3>
+          <div class="price">₹149</div>
+          <p style="color:var(--muted)">Social-size poster + 1 revision.</p>
+        </div>
+        <div class="price-card">
+          <h3>Website (Basic)</h3>
+          <div class="price">₹999</div>
+          <p style="color:var(--muted)">1–3 page responsive site. Publish help included.</p>
+        </div>
+      </div>
+    </section>
+
+
+        <aside class="contact-info">
+          <h3 style="margin-top:0">Get in touch</h3>
+          <p style="color:var(--muted)">Email: <a class="contact-link" href="mailto:launchlayer49@gmail.com">launchlayer49@gmail.com</a></p>
+          <p style="color:var(--muted)">Phone: <a class="contact-link" href="tel:+917985042683">+91 7985042683</a></p>
+          <p style="color:var(--muted)">Location: Shahjahanpur, Uttar Pradesh, India</p>
+          <div style="margin-top:12px;display:flex;gap:8px">
+            <a href="https://www.instagram.com/riya_sri_262" target="_blank" rel="noreferrer" class="btn ghost">Instagram</a>
+            <a href="https://www.linkedin.com/in/riya-srivastava-5649b72a6" target="_blank" rel="noreferrer" class="btn ghost">LinkedIn</a>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p style="margin:0">&copy; <strong>Riya Srivastava</strong> · Designed & maintained by me</p>
+    </div>
+  </footer>
+
+  <!-- Form submission script -->
+  <!-- Intersection Observer for animations -->
+  <script>
+    // Scroll reveal
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          if (entry.target.classList.contains('skills-progress')) {
+            entry.target.style.width = entry.target.dataset.progress + '%';
+          }
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections and elements with reveal class
+    document.querySelectorAll('section, .reveal').forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+
+    // Header scroll effect
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      const button = this.querySelector('button[type="submit"]');
+      const statusDiv = document.getElementById('formStatus');
+      
+      // Update button state
+      if (button) {
+        button.innerHTML = 'Sending... <span class="spinner"></span>';
+        button.disabled = true;
+      }
+
+      // Show status message
+      if (statusDiv) {
+        statusDiv.style.display = 'block';
+        statusDiv.className = 'status-success';
+        statusDiv.textContent = 'Sending your message...';
+      }
+      
+      // If FormSubmit is used, the page will redirect to the _next URL after a successful submit.
+      // Also show a short client-visible confirmation immediately so the sender knows their message started sending.
+      // Note: the first time a new receiving email is used, you must confirm it via the verification email sent by FormSubmit.
+    });
+  </script>
+
+</body>
+</html>
+
+
+<!--
+README — next steps included below
+1) To deploy to GitHub Pages:
+   - Create (or open) a repository named `portfolio` on your GitHub account.
+   - Upload this `index.html` and your images (project-website-screenshot.png, resume-sample.png, poster-sample.png, Untitled_design_out0009-removebg-preview.png).
+   - In repo settings -> Pages -> Source: deploy from `main` branch (root). Your site will be live at https://<your-username>.github.io/<repo-name>/
+
+2) FormSubmit notes:
+   - After the first submission, FormSubmit will send a verification email to launchlayer49@gmail.com. Click it to enable delivery.
+   - You can change the action URL to another receiving endpoint later (e.g., a Google Apps Script webhook).
+
+3) To save leads into Google Sheets automatically (optional):
+   - Create a new Google Sheet and go to Extensions → Apps Script.
+   - Replace the default code with the script below, save and Deploy -> New deployment -> Select "Web app" -> Execute as: "Me" -> Who has access: "Anyone".
+   - Copy the Web App URL and replace `form.action` in the HTML with that URL. The Apps Script will accept POST requests and append rows to the sheet.
+
+Apps Script (paste into script editor):
+function doPost(e){
+  try{
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var sheet = ss.getSheetByName('Sheet1') || ss.getSheets()[0];
+    var data = e.postData.contents ? JSON.parse(e.postData.contents) : e.parameter;
+    var name = data.name || data.Name || '';
+    var email = data.email || data.Email || data.email_address || '';
+    var message = data.message || data.Message || '';
+    sheet.appendRow([new Date(), name, email, message]);
+    return ContentService.createTextOutput(JSON.stringify({status:'success'})).setMimeType(ContentService.MimeType.JSON);
+  }catch(err){
+    return ContentService.createTextOutput(JSON.stringify({status:'error', message:err.message})).setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+4) If you want, I can create the three sample images for you (website screenshot, resume, poster) and provide them ready to upload. Reply "Create images".
+5) If you'd like, I can also prepare the exact GitHub steps and PR-ready files and guide you through publishing. Reply "Deploy".
+6) If you'd like Google Sheets integration configured for you, reply "Sheets" and I will provide the exact Apps Script and next steps.
+-->
+

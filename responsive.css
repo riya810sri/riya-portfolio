@@ -1,0 +1,200 @@
+/* Base responsive styles */
+:root {
+    --header-height: 70px;
+    --primary-color: #0ef;
+    --background: rgb(47, 4, 80);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    padding-top: var(--header-height);
+}
+
+/* Header and Navigation */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 5%;
+    background: var(--background);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    height: var(--header-height);
+}
+
+/* Mobile menu */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    z-index: 1001;
+}
+
+.hamburger .line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    margin: 6px 0;
+    transition: .3s;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .navbar {
+        position: fixed;
+        top: var(--header-height);
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - var(--header-height));
+        background: var(--background);
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 0;
+        transition: .3s ease-in-out;
+    }
+
+    .navbar.active {
+        left: 0;
+    }
+
+    .navbar a {
+        margin: 15px 0;
+        font-size: 18px;
+    }
+
+    .home {
+        flex-direction: column;
+        padding-top: 100px;
+        height: auto;
+        text-align: center;
+    }
+
+    .home img {
+        width: 90%;
+        max-width: 400px;
+        height: auto;
+        margin: 30px auto;
+    }
+
+    .home-content {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .home-sci {
+        justify-content: center;
+    }
+
+    .services-list div {
+        margin: 10px;
+    }
+
+    .contact-form {
+        width: 90%;
+    }
+
+    .blog-card {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 10px 5%;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .home-content h1 {
+        font-size: 28px;
+    }
+
+    .home-content h3 {
+        font-size: 20px;
+    }
+
+    .btn-box, .read {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .about-text h2 {
+        font-size: 32px;
+    }
+
+    .services-list div {
+        padding: 15px;
+    }
+
+    .section-subtitle,
+    .sub-title {
+        font-size: 28px;
+    }
+
+    .skills-title,
+    .skills-data {
+        font-size: 14px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 8px;
+    }
+
+    .blog-card .card-banner img {
+        height: 180px;
+    }
+}
+
+/* Animations for mobile menu */
+.hamburger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Improve touch targets for mobile */
+.navbar a,
+.btn-box,
+.read,
+.contact-form input,
+.contact-form textarea,
+.btn-submit {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-sci a {
+    min-width: 44px;
+    min-height: 44px;
+}
